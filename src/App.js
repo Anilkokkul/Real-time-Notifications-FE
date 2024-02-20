@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000"); // Connect to the server
+const socket = io("https://real-time-6fu6.onrender.com"); // Connect to the server
 
 const App = () => {
   const [notifications, setNotifications] = useState([]);
@@ -13,9 +13,6 @@ const App = () => {
     });
 
     // Clean up the socket connection
-    return () => {
-      socket.disconnect();
-    };
   }, [notifications]);
 
   const sendNotification = () => {
